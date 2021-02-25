@@ -1,12 +1,7 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>약관</title>
-    <link rel="stylesheet" href="../css/style.css"/>    
-</head>
-<body>
-    <div id="wrapper">
+
+<th:block th:include="/_header.html"></th:block>
+
         <section id="user" class="terms">
             <table>
                 <caption>사이트 이용약관</caption>
@@ -35,7 +30,5 @@
                 <a href="/user/register">다음</a>
             </div>
         </section>
-    </div>
-    
-</body>
+    <th:block th:include="/_footer.html"></th:block>
 </html>
