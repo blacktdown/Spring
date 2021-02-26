@@ -5,18 +5,26 @@
 
 <mapper namespace="kr.co.farmstory.dao.BoardDao">
 
+	<select id="selectLatest" resultType="kr.co.farmstory.vo.BoardVo">
+		(SELECT * FROM `JBOARD_ARTICLE` WHERE `cate`='grow' AND `parent`=0 ORDER BY `seq` DESC LIMIT 5)
+		UNION
+		(SELECT * FROM `JBOARD_ARTICLE` WHERE `cate`='school' AND `parent`=0 ORDER BY `seq` DESC LIMIT 5)
+		UNION
+		(SELECT * FROM `JBOARD_ARTICLE` WHERE `cate`='story' AND `parent`=0 ORDER BY `seq` DESC LIMIT 5);
+	</select>
+
 	<insert id="insertArticle">
 		INSERT INTO `JBOARD_ARTICLE` SET
 		`cate`=#{cate},
 		`title`=#{title}, 
 		`content`=#{content}, 
-		`uid`=#{uid},
+		`uid`=#{uid}, 
 		`regip`=#{regip}, 
 		`rdate`=NOW();		  
 	</insert>
 		
 	<select id="selectCountTotalArticle" resultType="int">
-		SELECT COUNT(*) FROM `JBOARD_ARTICLE` WHERE `parent`=0;
+		SELECT COUNT(*) FROM `JBOARD_ARTICLE` WHERE `parent`=0 AND `cate`=#{cate};
 	</select>
 	
 	<select id="selectArticle" resultType="kr.co.farmstory.vo.BoardVo">
@@ -26,9 +34,9 @@
 	<select id="selectArticles" resultType="kr.co.farmstory.vo.BoardVo">
 		SELECT a.*, b.nick FROM `JBOARD_ARTICLE` AS a
 		JOIN `JBOARD_MEMBER` AS b ON a.uid = b.uid
-		WHERE `parent`=0
+		WHERE `parent`=0 AND `cate`=#{cate}
 		ORDER BY `seq` DESC
-		LIMIT #{start}, 10;
+		LIMIT #{start}, 10;		
 	</select>
 	
 	<delete id="deleteUser">
@@ -45,6 +53,4 @@
 	<select id="selectCountUid" resultType="int">
 		SELECT COUNT(*) FROM `JBOARD_MEMBER` WHERE `uid`=#{uid};
 	</select>
-	
-
 </mapper>
