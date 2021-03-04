@@ -38,10 +38,19 @@ public class ProductsVo {
 	private String etc5;
 	
 	// 추가 폼 필드
+	private int salePrice;
+	
 	private MultipartFile file1;
 	private MultipartFile file2;
 	private MultipartFile file3;
 	private MultipartFile file4;
+	
+	public int getSalePrice() {
+		return salePrice;
+	}
+	public void setSalePrice(int salePrice) {
+		this.salePrice = salePrice;
+	}
 	
 	public MultipartFile getFile1() {
 		return file1;
