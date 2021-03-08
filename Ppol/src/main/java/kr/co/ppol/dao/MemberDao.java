@@ -1,5 +1,17 @@
 package kr.co.ppol.dao;
 
+import org.springframework.stereotype.Repository;
+
+import kr.co.ppol.vo.TermsVo;
+
+@Repository
 public interface MemberDao {
+	
+	public void insertMember();
+	public TermsVo selectTerms();
+	public void selectMember();
+	public void selectMembers();
+	public void updateMember();
+	public void deleteMember();
 
 }

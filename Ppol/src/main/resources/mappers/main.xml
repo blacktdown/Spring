@@ -18,6 +18,10 @@
 		
 	</resultMap>
 	
+	<select id="selectTerms" resultType="kr.co.ppol.vo.TermsVo">
+		SELECT * FROM `JBOARD_TERMS`;
+	</select>
+	
 	<select id="selectCategories" resultMap="categoriesMap">
 	
 		SELECT c1.code1, c2.code2, c1.title AS tit1, c2.title AS tit2

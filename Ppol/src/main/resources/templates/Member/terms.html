@@ -17,15 +17,15 @@
         <header>
             <div class="top">
                 <div>
-                    <a href="./login.html">로그인</a>
-                    <a href="./terms.html">회원가입</a>
+                    <a href="/member/login">로그인</a>
+                    <a href="/member/terms">회원가입</a>
                     <a href="#">마이페이지</a>
-                    <a href="../shop/cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;장바구니</a>
+                    <a href="/shop/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;장바구니</a>
                 </div>
             </div>
             <div class="logo">
                 <div>
-                    <a href="../index.html"><img src="../img/linkedin_banner_image_logo.png" alt="로고"/></a>
+                    <a href="/index"><img src="../img/linkedin_banner_image_logo.png" alt="로고"/></a>
                 </div>
             </div>
         </header>
@@ -34,7 +34,7 @@
                 <caption>사이트 이용약관</caption> 
                 <tr>
                     <td>
-                        <textarea name="terms">사이트 이용약관에 동의하십니까?</textarea>
+                        <textarea readonly>[[${vo.terms}]]</textarea>
                         <p>
                             <label><input type="checkbox" name="chk1"/>동의합니다.</label>
                         </p>
@@ -45,7 +45,7 @@
                 <caption>개인정보 취급방침</caption> 
                 <tr>
                     <td>
-                        <textarea name="privacy">개인정보 취급방침 입력에 동의하십니까?</textarea>
+                        <textarea readonly>[[${vo.privacy}]]</textarea>
                         <p>
                             <label><input type="checkbox" name="chk2"/>동의합니다.</label>
                         </p>
@@ -53,13 +53,13 @@
                 </tr>
             </table>
             <div>
-                <a href="./login.html" target="_sefl">취소</a>
-                <a href="./register.html" target="_self">다음</a>
+                <a href="/member/login" target="_sefl">취소</a>
+                <a href="/member/register" target="_self">다음</a>
             </div>
         </section>
         <footer>
             <ul>
-                <li><a href="../introduction/hello.html">회사소개</a></li>
+                <li><a href="/introduction/hello">회사소개</a></li>
                 <li><a href="#">서비스이용약관</a></li>
                 <li><a href="#">개인정보처리방침</a></li>
                 <li><a href="#">전자금융거래약관</a></li>

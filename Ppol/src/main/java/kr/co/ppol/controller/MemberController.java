@@ -1,10 +1,18 @@
 package kr.co.ppol.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import kr.co.ppol.service.MemberService;
+import kr.co.ppol.vo.TermsVo;
 
 @Controller
 public class MemberController {
+	
+	@Autowired
+	private MemberService service;
 	
 	@GetMapping("/member/join")
 	public String join() {
@@ -17,7 +25,11 @@ public class MemberController {
 	}
 	
 	@GetMapping("/member/terms")
-	public String terms() {
+	public String terms(Model model) {
+		
+		TermsVo vo = service.selectTerms();
+		model.addAttribute("vo", vo);
+		
 		return "/member/terms";
 	}
 	
