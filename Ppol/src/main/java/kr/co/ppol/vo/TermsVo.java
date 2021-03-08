@@ -17,5 +17,8 @@ public class TermsVo {
 	public void setPrivacy(String privacy) {
 		this.privacy = privacy;
 	}
+	
+	
+	
 
 }
